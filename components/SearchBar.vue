@@ -1,7 +1,8 @@
 <template>
     <input
+    class="w-96 my-3"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @change="$emit('update:modelValue', $event.target.value)"
       type="text"
     />
   </template>

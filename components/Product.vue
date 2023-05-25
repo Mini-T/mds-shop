@@ -3,7 +3,7 @@
         <div class="header" :style="'background-image:url('+ product.image +')'"></div>
         <div class="body p-3">
             <h1 class="p-2 font-semibold">{{ product.title }}</h1>
-            <p>{{ product.description }}</p>
+            <UTooltip :text="product.description"><p class="truncate w-40">{{ product.description }}</p></UTooltip>
         </div>
         <div class="footer">
             <button @click="$emit('panier', {id: product.id, title: product.title, price: product.price, quantity: 1})">+</button>
@@ -22,7 +22,7 @@
 <style scoped>
 .card{
     width: 200px;
-    height: min-content;
+    max-height: 400px;
     border: solid grey 2px;
 }
 

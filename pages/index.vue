@@ -14,20 +14,26 @@
 </template>
 <script setup>
 useHead({ title: "Login" });
+import {fetchAndStockProducts} from '../composables/states'
 
+
+const products = useProducts()
 const { query } = useRoute();
 const email = ref("");
-const cookie = useCookie("email");
+const cookie = useCookie("email"); 
 function handleForm(input) {
-  cookie.value = input;
+  cookie.value = input
   navigateTo("products");
 }
 
-onMounted(() => {
+onMounted(async () => {
   if (query.email) {
     handleForm(query.email);
   }
-});
+  if (products.value.length < 1) {
+            await fetchAndStockProducts(products)
+        }
+})
 </script>
 <style scoped>
 .main {

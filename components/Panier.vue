@@ -19,12 +19,8 @@
 <script setup>
 const totalQuantity = ref(0)
 const totalPrice = ref(0)
-    const props = defineProps({
-        itemList: {
-            type: Array,
-            required: true
-        }
-    })
+    const props = defineProps({})
+    const itemList = usePanier()
 </script>
 <style scoped>
 
